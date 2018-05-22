@@ -10,9 +10,9 @@ object HelloWorld {
 
 class Demo {
     def printString(s : String): String =  {
-    if(!s.equals(""))
+    if(!s.equals("Hello"))
       return s + " World"
     else
-      return ""
+      return "World"
   }
 }
