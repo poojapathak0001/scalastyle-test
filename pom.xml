@@ -15,12 +15,46 @@
         </configuration>
       </plugin>
       
-      <!-- scalatest -->
       <plugin>
+
+			    <groupId>org.apache.maven.plugins</groupId>
+
+			    <artifactId>maven-surefire-plugin</artifactId>
+
+			    <version>2.15</version>
+
+			    <configuration>
+
+			        <!-- Sets the VM argument line used when unit tests are run. -->
+
+			        <argLine>${surefireArgLine}</argLine>
+
+			        <!-- Skips unit tests if the value of skip.unit.tests property is true -->
+
+			        <skipTests>${skip.unit.tests}</skipTests>
+
+			        <!-- Excludes integration tests when unit tests are run. -->
+
+			        <excludes>
+
+			            <exclude>**/IT*.java</exclude>
+
+			        </excludes>
+
+			    </configuration>
+
+			</plugin>
+		
+      <!-- scalatest -->
+ 
+		
+		<plugin>
 			<groupId>org.scalatest</groupId>
 			<artifactId>scalatest-maven-plugin</artifactId>
-			<version>2.0.0</version>
+			<version>1.0</version>
 			<configuration>
+			<sourceDirectory>${project.basedir}/src/main/scala</sourceDirectory>
+				<testSourceDirectory>${project.basedir}/src/test/scala</testSourceDirectory>
 				<reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
 				<junitxml>.</junitxml>
 				<filereports>WDF TestSuite.txt</filereports>
@@ -39,32 +73,41 @@
 				</execution>
 			</executions>
 		</plugin>
-      
-      <!-- scalastyle -->
+		 <!-- scalastyle -->
 		<plugin>
-			<groupId>org.scalastyle</groupId>
-			<artifactId>scalastyle-maven-plugin</artifactId>
-			<version>1.0.0</version>
-			<configuration>
-				<sourceDirectory>${project.basedir}/src/main/scala</sourceDirectory>
-				<testSourceDirectory>${project.basedir}/src/test/scala</testSourceDirectory>
-				<configLocation>${project.basedir}/scalastyle-config.xml</configLocation>
-				<outputFile>${project.build.directory}/scalastyle-result.xml</outputFile>
-				<outputEncoding>UTF-8</outputEncoding>
-			</configuration>
-		</plugin>
+            <groupId>org.scalastyle</groupId>
+            <artifactId>scalastyle-maven-plugin</artifactId>
+            <version>1.0.0</version>
+            <configuration>
+              <verbose>false</verbose>
+              <failOnViolation>true</failOnViolation>
+              <includeTestSourceDirectory>true</includeTestSourceDirectory>
+              <failOnWarning>false</failOnWarning>
+              <sourceDirectory>${project.basedir}/src/main/scala</sourceDirectory>
+              <testSourceDirectory>${project.basedir}/src/test/scala</testSourceDirectory>
+              <configLocation>${project.basedir}/lib/scalastyle_config.xml</configLocation>
+              <outputFile>${project.basedir}/scalastyle-output.xml</outputFile>
+              <outputEncoding>UTF-8</outputEncoding>
+            </configuration>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>check</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+
       
     </plugins>
   </build>
-  
   <dependencies>
-  	<!-- https://mvnrepository.com/artifact/org.scalatest/scalatest -->
 	<dependency>
-	    <groupId>org.scalatest</groupId>
-	    <artifactId>scalatest_2.12</artifactId>
-	    <version>3.2.0-SNAP10</version>
-	    <scope>test</scope>
+	  <groupId>org.scalatest</groupId>
+	  <artifactId>scalatest_2.10</artifactId>
+	  <version>2.0.M5b</version>
+	  <scope>test</scope>
 	</dependency>
-  	
   </dependencies>
+  
 </project>
