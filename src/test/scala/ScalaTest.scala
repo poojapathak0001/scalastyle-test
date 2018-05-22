@@ -12,6 +12,6 @@ class ScalaTest {
   }
   
   @Test def printHelloTest2 {
-    assertEquals("", obj.printString(""))
+    assertNotEquals("p", obj.printString("Hello World"))
   }
 }
