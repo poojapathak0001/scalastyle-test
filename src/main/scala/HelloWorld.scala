@@ -1,9 +1,10 @@
 package org.demo.scala
+import scala.collection.immutable.StringOps;
 
 object HelloWorld {
   
   def main(args: Array[String]) {
-    val d = new Demo
+    var d = new Demo
     println(d.printString("Hello"))
   }
 }

@@ -6,7 +6,7 @@ import org.demo.scala.Demo;
 
 class ScalaTest {
 
-  val obj = new Demo
+  var obj = new Demo
   @Test def printHelloTest {
     assertEquals("Hello World", obj.printString("Hello"))
   }
