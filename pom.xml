@@ -101,8 +101,8 @@
           <!-- scala coverage -->
       <plugin>
 	    <groupId>org.scoverage</groupId>
-	    <artifactId>scoverage-maven-plugin</artifactId>
-	    <version>${scoverage.plugin.version}</version>
+	    <artifactId>scalac-scoverage-plugin_2.12</artifactId>
+	    <version>1.4.0-M3</version>
 	    <executions>
 	        <execution>
 	            <id>coverage</id>
