@@ -24,7 +24,7 @@ pipeline {
 		
 		stage ('Build') {
 			steps {
-				sh 'mvn clean install test'
+				
 				echo "${params.Greeting} World!"
 			}
 			
