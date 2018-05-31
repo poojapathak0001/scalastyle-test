@@ -1,4 +1,4 @@
-gcloud auth activate-service-account --key-file  C:\Users\poopatha\Downloads\cdp-gcp-203008-5fc6d6d3f0fe.json
+gcloud auth activate-service-account --key-file  C:\\Users\\poopatha\\Downloads\\cdp-gcp-203008-5fc6d6d3f0fe.json
 
 export PROJECT=$(gcloud info --format='value(config.project)')
 gsutil mb gs://$project_id-jenkins-artifacts
