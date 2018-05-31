@@ -16,7 +16,7 @@ pipeline {
 				
 				sh 'chmod 777 script.sh'
 				sh 'yes | ./script.sh'
-				mvn scalastyle:check sonar:sonar
+				sh 'mvn scalastyle:check sonar:sonar'
 				sh	'echo "Path = $Path"'
 				sh	'echo "M2_HOME = $MAVEN_HOME"'
 				
