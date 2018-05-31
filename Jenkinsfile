@@ -23,12 +23,12 @@ pipeline {
 		stage ('Build') {
 			steps {
 				
-				echo "${params.Greeting} World!"
+				echo "${params.Greeting} user"
 			}
 			
 			post {
 				success {
-					junit 'target/surefire-reports/*.xml'
+					echo 'Build Successful'
 				}
 			}
 		}
